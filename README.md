@@ -16,3 +16,6 @@ init-project 디렉터리 아래 git.js 파일을 통해서 git branch 생성
 * develop
 * feature/chapter2 ~ feature/chapter18
 
+## Chapter2
+vscode 를 통한 React 소스코드 edit 하는 과정 -> Intellij idea 사용함으로서 이부분 건너뜀.
+
