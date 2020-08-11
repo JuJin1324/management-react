@@ -16,7 +16,7 @@ let createChapterBranches = (start, end) => {
 
 let initGitBranches = () => {
     createDevBranch();
-    createChapterBranches(3, 18);
+    createChapterBranches(2, 18);
 };
 
 let main = () => {
