@@ -11,10 +11,8 @@ React 개발환경 구축 실습
 4. react 프로젝트 생성 및 이동: `create-react-app management-react; cd management-react`
 5. react 실행: `yarn start`
 
-### init-project
-init-project 디렉터리 아래 git.js 파일을 통해서 git branch 생성
-* develop
-* feature/chapter2 ~ feature/chapter18
+### git pull한 react 프로젝트 환경 구축하기
+커맨드 실행: `yarn install`
 
 ## Chapter2
 vscode 를 통한 React 소스코드 edit 하는 과정 -> Intellij idea 사용함으로서 이부분 건너뜀.
