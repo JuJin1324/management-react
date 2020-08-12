@@ -79,3 +79,16 @@ render() {
 ## Chapter7
 * nodemon 설치: `npm install -g nodemon`
 * nodemon 설치한다고 프로젝트에 node_modules 생성 안됨. `yarn install` 을 통해서 package.json 에 기술한 모듈들 설치.
+
+## Chapter8
+### Server & Client 동시 실행
+프로젝트 루트 디렉터리에서 `yarn dev` 명령어 실행
+
+### HTTPie 를 이용한 API 확인
+* HTTPie 가 설치되어 있지 않은 경우 설치: `brew install httpie`
+* HTTPie 가 설치되어 있는 경우 API 확인: `http -v localhost:5000/api/customers`
+
+### Syntax
+* props : 변경되지 않는 상수
+* state : 변경 가능한 변수
+

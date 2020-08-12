@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import Customer from "./components/Customer";
 import Table from "@material-ui/core/Table";
@@ -20,66 +20,59 @@ const styles = theme => ({
     }
 })
 
-const customers = [
-    {
-        'id': 1,
-        'image': 'https://placeimg.com/64/64/1',
-        'name': '유주진',
-        'birthday': '9201122',
-        'gender': '남자',
-        'job': '대딩',
-    },
-    {
-        'id': 2,
-        'image': 'https://placeimg.com/64/64/2',
-        'name': '유주순',
-        'birthday': '880922',
-        'gender': '여자',
-        'job': '직장인',
-    },
-    {
-        'id': 3,
-        'image': 'https://placeimg.com/64/64/3',
-        'name': '김동역',
-        'birthday': '9800430',
-        'gender': '남자',
-        'job': '초딩',
-    },
-]
+class App extends Component {
+    state = {
+        customers: ""
+    }
 
-function App({classes}) {
-    return (
-        <Paper className={classes.root}>
-            <Table className={classes.table}>
-                <TableHead>
-                    <TableRow>
-                        <TableCell>번호</TableCell>
-                        <TableCell>이미지</TableCell>
-                        <TableCell>이름</TableCell>
-                        <TableCell>생년월일</TableCell>
-                        <TableCell>성별</TableCell>
-                        <TableCell>직업</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {
-                        customers.map(c => {
-                            return (
-                                <Customer
-                                    key={c.id}
-                                    id={c.id}
-                                    image={c.image}
-                                    name={c.name}
-                                    birthday={c.birthday}
-                                    gender={c.gender}
-                                    job={c.job}/>
-                            )
-                        })
-                    }
-                </TableBody>
-            </Table>
-        </Paper>
-    )
+    componentDidMount() {
+        this.callApi()
+            .then(res => this.setState({customers: res}))
+            .catch(err => console.log(err));
+    }
+
+    callApi = async () => {
+        const response = await fetch('/api/customers');
+        const body = await response.json();
+        return body;
+    }
+
+    render() {
+        const {classes} = this.props;
+
+        return (
+            <Paper className={classes.root}>
+                <Table className={classes.table}>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>번호</TableCell>
+                            <TableCell>이미지</TableCell>
+                            <TableCell>이름</TableCell>
+                            <TableCell>생년월일</TableCell>
+                            <TableCell>성별</TableCell>
+                            <TableCell>직업</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {
+                            this.state.customers ? this.state.customers.map(c => {
+                                return (
+                                    <Customer
+                                        key={c.id}
+                                        id={c.id}
+                                        image={c.image}
+                                        name={c.name}
+                                        birthday={c.birthday}
+                                        gender={c.gender}
+                                        job={c.job}/>
+                                )
+                            }) : ""
+                        }
+                    </TableBody>
+                </Table>
+            </Paper>
+        )
+    }
 }
 
 export default withStyles(styles)(App);
