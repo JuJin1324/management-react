@@ -14,6 +14,12 @@ React 개발환경 구축 실습
 ## Chapter2
 vscode 를 통한 React 소스코드 edit 하는 과정 -> Intellij idea 사용함으로서 이부분 건너뜀.
 
+### IntelliJ 제품군을 통한 React 실행 방법
+1. Command(윈도우에선 Ctrl) + Shift + a 에서 `run...` 타이핑 후 앤터
+2. 좌측 상단 `+` 버튼 클릭 -> npm 
+3. Command 항목에는 `run`, Scripts 항목에는 `start` 입력 후 Apply 버튼을 눌러 저장
+4. 실행  
+
 ## Chapter3
 ### git pull한 react 프로젝트 환경 구축하기
 커맨드 실행: `yarn install`
@@ -60,3 +66,12 @@ render() {
 
 * map 함수 사용시 콜백에 클래스 생성시 key에 unique한 값을 주어야하며 key를 받은 클래스 내부에서는 key를 this.props로 사용할 수 없다.
 (key는 props 가 아니라는 에러를 보게될 것이다.)
+
+## Chapter6
+### Material UI
+설치: `npm install @material-ui/core`
+
+### Syntax
+`function App()` vs `class App extends Component`
+* function App() 의 경우 props 사용시 this.props가 아닌 선언시에 function App(props) 이렇게 파라미터로 props 를 기술한다.   
+* 참조사이트: [[React.JS] 강좌: 함수형 컴포넌트 (Functional Component)](https://velopert.com/2994)
