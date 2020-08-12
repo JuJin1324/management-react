@@ -23,3 +23,40 @@ vscode 를 통한 React 소스코드 edit 하는 과정 -> Intellij idea 사용�
 * class 생성 후 외부 파일에서 해당 클래스를 사용하기 위해서는 마지막에 `export default 클래스이름` 구문을 넣어주어야함.
 * 외부에서 Class로 넘겨주는 Parameter를 props 라고 부르며 클래스 내부에서는 외부에서 받은 값을 `this.props.변수이름` 으로 사용 가능.
 
+## Chapter5
+### 이미지
+랜덤으로 이미지를 받을 수 있는 사이트: https://placeimg.com
+* 예시: 64x64 이미지를 랜덤으로 요청: https://placeimg.com/64/64/any
+
+### Syntax
+* React 는 JSX 문법을 따르며 JSX 문법에 따르면 render() 함수안에서 return 시에 두줄 이상이 되면 <div> 태그로 감싸주어야한다.   
+예시
+``` jsx
+// 정상
+render() {
+        return (
+            <img src={this.props.image} alt="profile"/>
+        )
+}
+
+// 비정상 오류
+render() {
+        return (
+            <img src={this.props.image} alt="profile"/>
+            <h2>{this.props.name}({this.props.id})</h2>
+        )
+}
+
+// 정상
+render() {
+        return (
+            <div>
+                <img src={this.props.image} alt="profile"/>
+                <h2>{this.props.name}({this.props.id})</h2>
+            </div>
+        )
+}
+```
+
+* map 함수 사용시 콜백에 클래스 생성시 key에 unique한 값을 주어야하며 key를 받은 클래스 내부에서는 key를 this.props로 사용할 수 없다.
+(key는 props 가 아니라는 에러를 보게될 것이다.)
