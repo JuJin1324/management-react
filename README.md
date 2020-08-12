@@ -75,3 +75,7 @@ render() {
 `function App()` vs `class App extends Component`
 * function App() 의 경우 props 사용시 this.props가 아닌 선언시에 function App(props) 이렇게 파라미터로 props 를 기술한다.   
 * 참조사이트: [[React.JS] 강좌: 함수형 컴포넌트 (Functional Component)](https://velopert.com/2994)
+
+## Chapter7
+* nodemon 설치: `npm install -g nodemon`
+* nodemon 설치한다고 프로젝트에 node_modules 생성 안됨. `yarn install` 을 통해서 package.json 에 기술한 모듈들 설치.
