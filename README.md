@@ -21,7 +21,7 @@ vscode 를 통한 React 소스코드 edit 하는 과정 -> Intellij idea 사용�
 4. 실행  
 
 ## Chapter3
-### git pull한 react 프로젝트 환경 구축하기
+### git clone한 react 프로젝트 환경 구축하기
 커맨드 실행: `yarn install`
 
 ## Chapter4
@@ -88,7 +88,26 @@ render() {
 * HTTPie 가 설치되어 있지 않은 경우 설치: `brew install httpie`
 * HTTPie 가 설치되어 있는 경우 API 확인: `http -v localhost:5000/api/customers`
 
+
 ### Syntax
 * props : 변경되지 않는 상수
 * state : 변경 가능한 변수
 
+## Chapter9
+### React Life Cycle
+React 시작시: constructor() -> componentWillMount() -> render() -> componentDidMount()
+props 혹은 state 변경 시: shouldComponentUpdate() -> render()
+
+### Syntax
+React map 함수 사용: 배열의 각 요소를 변환시켜주는 함수   
+ex) [1, 2, 3, 4, 5] 인 배열에서 각 요소에 +5를 해준 배열로 변경하고 싶다.
+```javascript
+let arr = [ 1, 2, 3, 4, 5 ];
+console.log(arr);     // [ 1, 2, 3, 4, 5 ]
+let plus_5_arr = arr.map(c => c+5);
+console.log(plus_5_arr);  // [6, 7, 8, 9, 10 ]
+```™
+
+`const {completed} = this.state;` 구문에 관한 참조 사이트: [누구든지 하는 리액트 4편: props 와 state](https://velopert.com/3629)
+
+* fetch(): 

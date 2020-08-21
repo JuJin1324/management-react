@@ -1,2 +1,4 @@
 /.idea/
 /node_modules/
+.DS_Store 제거할 예정
+/database.json
