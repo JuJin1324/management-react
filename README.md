@@ -119,7 +119,21 @@ fetch API
 
 ## chapter11
 ### Moudle
-mysql 모듈 설치: `npm install --save mysql`
+mysql 모듈 설치: `npm install --save mysql`   
+
+### DB Connection 정보
+DB 커넥션 정보를 소스코드에 하드코딩하지 않고 database.json 파일에 정보를 저장한 이후 파일을 읽는 `fs` 모듈을 통해서
+정보를 가져와서 커넥션을 진행하였다.   
+ ```json
+// database.json 샘플
+{
+  "host": "management-tutorial.my-aws-rds-number.ap-northeast-2.rds.amazonaws.com",
+  "user": "admin",
+  "password": "password",
+  "port": "3306",
+  "database": "management"
+}
+```
 
 ### npm
 `--save-prod`: package.json 의 dependencies 에 패키지를 등록함
