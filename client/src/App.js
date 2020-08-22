@@ -75,6 +75,7 @@ class App extends Component {
                                 <TableCell>생년월일</TableCell>
                                 <TableCell>성별</TableCell>
                                 <TableCell>직업</TableCell>
+                                <TableCell>설정</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -88,7 +89,9 @@ class App extends Component {
                                             name={c.name}
                                             birthday={c.birthday}
                                             gender={c.gender}
-                                            job={c.job}/>
+                                            job={c.job}
+                                            stateRefresh={this.stateRefresh}
+                                        />
                                     )
                                 }) : <TableRow>
                                     <TableCell colSpan='6' align='center'>

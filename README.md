@@ -147,6 +147,7 @@ callApi = async () => {
 }
 
 // 새로 적용한 axios
+import axios from 'axios';
 callApi = async () => {
     const response = await axios.get('/api/customers');
     return await response.data;
@@ -167,3 +168,5 @@ chapter13에서 했던 `window.location.reload();` 방식은 전체 페이지를
 * `stateRefresh()` 함수의 호출은 CustomerAdd 에서 submit 버튼을 누른 경우에 호출되어야 함으로 CustomerAdd 컴포넌트에 props로 함수를 전달하여
 `handleFormSubmit()` 함수 내부에서 호출하도록 한다.
 
+## chapter15
+CustomerDelete 컴포넌트 추가

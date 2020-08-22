@@ -20,9 +20,10 @@ const connection = mysql.createConnection({
 })
 connection.connect();
 
-app.get('/api/customers', (req, res) => {
+let customerUri = '/api/customers';
+app.get(customerUri, (req, res) => {
     connection.query(
-        "select * from customer",
+        "select * from customer where isDeleted = 0",
         (err, rows, fields) => {
             res.send(rows);
         }
@@ -33,8 +34,8 @@ const multer = require('multer');
 const upload = multer({dest: './upload'});
 
 app.use('/image', express.static('./upload'));
-app.post('/api/customers', upload.single('image'), (req, res) => {
-    let sql = 'Insert into customer values (null, ?, ?, ?, ?, ?)';
+app.post(customerUri, upload.single('image'), (req, res) => {
+    let sql = 'Insert into customer values (null, ?, ?, ?, ?, ?, now(), 0)';
     let image = `/image/${req.file.filename}`;
     let name = req.body.name;
     let birthday = req.body.birthday;
@@ -42,6 +43,13 @@ app.post('/api/customers', upload.single('image'), (req, res) => {
     let job = req.body.job;
     let params = [image, name, birthday, gender, job];
     connection.query(sql, params, (err, rows, fields) => {
+        res.send(rows);
+    })
+});
+
+app.delete(customerUri + '/:id', (req, res) => {
+    let sql = `Update customer set isDeleted=1 where id=${req.params.id}`
+    connection.query(sql, (err, rows, fields) => {
         res.send(rows);
     })
 });
