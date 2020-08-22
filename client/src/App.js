@@ -10,6 +10,7 @@ import Paper from "@material-ui/core/Paper";
 import {withStyles} from "@material-ui/core/styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import CustomerAdd from "./components/CustomerAdd";
+import axios from 'axios';
 
 const styles = theme => ({
     root: {
@@ -26,21 +27,32 @@ const styles = theme => ({
 })
 
 class App extends Component {
-    state = {
-        customers: "",
-        completed: 0
+    constructor(props) {
+        super(props);
+        this.state = {
+            customers: null,
+            completed: 0
+        }
     }
 
-    componentDidMount() {
-        this.timer = setInterval(this.progress, 20);
+    stateRefresh = () => {
+        this.setState({
+            customers: null,
+            completed: 0
+        });
         this.callApi()
             .then(res => this.setState({customers: res}))
             .catch(err => console.log(err));
     }
 
+    componentDidMount() {
+        this.timer = setInterval(this.progress, 20);
+        this.stateRefresh();
+    }
+
     callApi = async () => {
-        const response = await fetch('/api/customers');
-        return await response.json();
+        const response = await axios.get('/api/customers');
+        return await response.data;
     }
 
     progress = () => {
@@ -88,7 +100,7 @@ class App extends Component {
                         </TableBody>
                     </Table>
                 </Paper>
-                <CustomerAdd/>
+                <CustomerAdd stateRefresh={this.stateRefresh}/>
             </div>
         )
     }

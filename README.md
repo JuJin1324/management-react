@@ -139,7 +139,31 @@ Fetch API보다 Axios가 더 좋은 장점
 * Node.js에서의 사용
 * 출처: [Axios를 사용하여 HTTP요청하기](https://tuhbm.github.io/2019/03/21/axios/)
 
+```javascript
+// 기존 fetch
+callApi = async () => {
+    const response = await fetch('/api/customers');
+    return await response.json();
+}
+
+// 새로 적용한 axios
+callApi = async () => {
+    const response = await axios.get('/api/customers');
+    return await response.data;
+}
+```
+
 ## chapter13
 ### Module
 nodejs post로 전송된 file 처리 API: `npm install --save multer`
+
+## chapter14
+CustomerAdd 컴포넌트를 통해서 customer 정보를 DB 추가 후 React 클라이언트에서 DB 정보를 보여주는 테이블 갱신시에
+chapter13에서 했던 `window.location.reload();` 방식은 전체 페이지를 reload 하는 방식이었다.   
+하지만 React 변화가 생긴 컴포넌트만 갱신할 수 있도록 하고 있음으로 컴포넌트만 갱신할 수 있도록 방식을 변경한다.   
+* 우선 DB 로 정보 추가는 CustomerAdd 컴포넌트에서 하지만 DB 테이블을 보여주는건 App 컴포넌트에서 수행한다.
+* App 컴포넌트에 state 초기화 후 callApi() 함수를 통해서 서버에서 DB 테이블 row를 가져와서 App 컴포넌트의 테이블을 갱신하는 함수인 `stateRefresh()`
+함수를 생성한다.
+* `stateRefresh()` 함수의 호출은 CustomerAdd 에서 submit 버튼을 누른 경우에 호출되어야 함으로 CustomerAdd 컴포넌트에 props로 함수를 전달하여
+`handleFormSubmit()` 함수 내부에서 호출하도록 한다.
 

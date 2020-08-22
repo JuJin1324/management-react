@@ -48,6 +48,7 @@ class CustomerAdd extends Component {
         e.preventDefault()  // form 의 기본동작 저지
         this.addCustomer().then((response) => {
             console.log(response);
+            this.props.stateRefresh();
         })
         this.setState({
             file: null,
@@ -57,7 +58,7 @@ class CustomerAdd extends Component {
             job: '',
             fileName: ''
         })
-        window.location.reload();
+        // window.location.reload();
     }
 
     render() {
