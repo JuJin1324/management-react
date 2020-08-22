@@ -106,8 +106,35 @@ let arr = [ 1, 2, 3, 4, 5 ];
 console.log(arr);     // [ 1, 2, 3, 4, 5 ]
 let plus_5_arr = arr.map(c => c+5);
 console.log(plus_5_arr);  // [6, 7, 8, 9, 10 ]
-```™
+```
 
 `const {completed} = this.state;` 구문에 관한 참조 사이트: [누구든지 하는 리액트 4편: props 와 state](https://velopert.com/3629)
 
-* fetch(): 
+fetch API
+* 기존 client에서 XHR(XML HTTP Request) 방식의 비동기 통신 API를 fetch 도입으로 변경.
+* HTTP 요청에 최적화되어 있음.
+* Promise 기반
+* fetch() 함수 뿐 아니라 Headers 객체, Request, Response 등의 객체가 포함되어 있음.
+* 참조사이트: [Javascript Fetch API](https://medium.com/@kkak10/javascript-fetch-api-e26bfeaad9b6)
+
+## chapter11
+### Moudle
+mysql 모듈 설치: `npm install --save mysql`
+
+### npm
+`--save-prod`: package.json 의 dependencies 에 패키지를 등록함
+`--save`: `--save-prod`와 동일
+`--save-dev`: package.json 의 devDependencies 에 패키지를 등록함
+
+## chapter12
+서버와 통신 목적의 API: `npm install --save axios`
+
+### fetch -> axios
+Fetch API보다 Axios가 더 좋은 장점
+* 구형브라우저를 지원합니다.(Fetch API의 경우는 폴리필이 필요합니다.)
+* 요청을 중단시킬 수 있습니다.
+* 응답 시간 초과를 설정하는 방법이 있습니다.
+* CSRF 보호 기능이 내장되어있다.
+* JSON 데이터 자동변환
+* Node.js에서의 사용
+* 출처: [Axios를 사용하여 HTTP요청하기](https://tuhbm.github.io/2019/03/21/axios/)
