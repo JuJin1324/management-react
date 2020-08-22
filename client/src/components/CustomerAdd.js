@@ -18,7 +18,7 @@ class CustomerAdd extends Component {
         const url = '/api/customers';
         const formData = new FormData();
         formData.append('image', this.state.file);
-        formData.append('userName', this.state.userName);
+        formData.append('name', this.state.userName);
         formData.append('birthday', this.state.birthday);
         formData.append('gender', this.state.gender);
         formData.append('job', this.state.job);
@@ -49,6 +49,15 @@ class CustomerAdd extends Component {
         this.addCustomer().then((response) => {
             console.log(response);
         })
+        this.setState({
+            file: null,
+            userName: '',
+            birthday: '',
+            gender: '',
+            job: '',
+            fileName: ''
+        })
+        window.location.reload();
     }
 
     render() {

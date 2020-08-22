@@ -138,3 +138,8 @@ Fetch API보다 Axios가 더 좋은 장점
 * JSON 데이터 자동변환
 * Node.js에서의 사용
 * 출처: [Axios를 사용하여 HTTP요청하기](https://tuhbm.github.io/2019/03/21/axios/)
+
+## chapter13
+### Module
+nodejs post로 전송된 file 처리 API: `npm install --save multer`
+
