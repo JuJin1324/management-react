@@ -184,3 +184,6 @@ chapter13에서 했던 `window.location.reload();` 방식은 전체 페이지를
 
 ## chapter15
 CustomerDelete 컴포넌트 추가
+
+## chapter16
+CustomerAdd 및 CustomerDelete 에 대한 Modal 창 추가
