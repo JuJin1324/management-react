@@ -187,3 +187,9 @@ CustomerDelete 컴포넌트 추가
 
 ## chapter16
 CustomerAdd 및 CustomerDelete 에 대한 Modal 창 추가
+
+## chapter17
+### Material-UI App bar 적용
+설치: `npm install --save @material-ui/icons`   
+App Bar 소스 코드 링크: [App Bar with search field](https://material-ui.com/components/app-bar/)   
+
